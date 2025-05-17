@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 6a311c618aea1f742ae2e265d8731ae5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821cc4fb49e488e42a95a2f08424017d
+      internalID: -469342786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a50597427d43d1429ef280fe7a1ba5b
+      internalID: -1537224635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ff360e2b02eed4b824eac72502e274
+      internalID: -1544787557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_3
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfb5768f451bde46a45d99350d96b9a
+      internalID: 1018059816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_4
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b0606b865f2d3f43a3140c13817bc34
+      internalID: 590532694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_5
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 329
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c3bfdddb07f6941a5cb1d3b77fc282
+      internalID: 1287250663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08774fc61f806484ebdf7df7c0ccbb69
+      internalID: 1617153067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec94499c98102ff4cb6425af51040bf5
+      internalID: 952759062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_8
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc2ee3587bde0b49a9529f3b875ac9e
+      internalID: -672542424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_9
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc688419d87436e4a9fcd16476a159a7
+      internalID: -1181298372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_10
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df53df8278f16ca458dc1c6732d3f68e
+      internalID: -1533280188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_11
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 238
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2479339c32b4014da3d09dd5fa6fdbf
+      internalID: -1656371865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13175c82a7aa991418aacb72da8af812
+      internalID: -700590145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abf898cfe1d33e47ab1ef7dac471c2f
+      internalID: 1501559465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_14
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cb710ac813cba48a064e47289e8c6e
+      internalID: 414356044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_15
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef8abe227a8e2247b2584468da3b885
+      internalID: 635621846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_16
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeff237d0c978a344818b5cb57ce21de
+      internalID: 1452521811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_17
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 147
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2093c43d832a644a5de6252b75555c
+      internalID: 924281429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6a380a3c79f974485c79e48c5f3bad
+      internalID: -1023947525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_19
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 56
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dcc67851c687a499f2e076a3b2fb32
+      internalID: 913647629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_20
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 56
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509c44026eec2ec4da85b6c06d8a78b4
+      internalID: -105137912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Brawl Stars - Default Pins_21
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 56
+        width: 83
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc28f5d9548ba447832e3479b8ffefb
+      internalID: 1765361589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mobile - Brawl Stars - Default Pins_0: -469342786
+      Mobile - Brawl Stars - Default Pins_1: -1537224635
+      Mobile - Brawl Stars - Default Pins_10: -1533280188
+      Mobile - Brawl Stars - Default Pins_11: -1656371865
+      Mobile - Brawl Stars - Default Pins_12: -700590145
+      Mobile - Brawl Stars - Default Pins_13: 1501559465
+      Mobile - Brawl Stars - Default Pins_14: 414356044
+      Mobile - Brawl Stars - Default Pins_15: 635621846
+      Mobile - Brawl Stars - Default Pins_16: 1452521811
+      Mobile - Brawl Stars - Default Pins_17: 924281429
+      Mobile - Brawl Stars - Default Pins_18: -1023947525
+      Mobile - Brawl Stars - Default Pins_19: 913647629
+      Mobile - Brawl Stars - Default Pins_2: -1544787557
+      Mobile - Brawl Stars - Default Pins_20: -105137912
+      Mobile - Brawl Stars - Default Pins_21: 1765361589
+      Mobile - Brawl Stars - Default Pins_3: 1018059816
+      Mobile - Brawl Stars - Default Pins_4: 590532694
+      Mobile - Brawl Stars - Default Pins_5: 1287250663
+      Mobile - Brawl Stars - Default Pins_6: 1617153067
+      Mobile - Brawl Stars - Default Pins_7: 952759062
+      Mobile - Brawl Stars - Default Pins_8: -672542424
+      Mobile - Brawl Stars - Default Pins_9: -1181298372
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
