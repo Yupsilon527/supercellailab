@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
-	public Text scoreText,scoreTextBG;
-	public GameObject restartMessage,knifeSelector,gunSelector,endSection;
+	public GameObject endSection;
 	int currentScore=0;
 	static GameManager myslf;
 	public bool gameOver=false;
@@ -26,24 +25,15 @@ public class GameManager : MonoBehaviour {
 	}
 	public static void AddScore(int pointsAdded){
 		myslf.currentScore += pointsAdded;
-		myslf.scoreText.text = myslf.currentScore.ToString ();
-		myslf.scoreTextBG.text = myslf.currentScore.ToString ();
-		myslf.scoreText.transform.localScale = Vector3.one * 2.5f;
 	}
 	public static void RegisterPlayerDeath(){
-		myslf.restartMessage.SetActive (true);
-		myslf.restartMessage.transform.localScale = Vector3.one *2.0f;
 		myslf.gameOver = true;
 	}
 	public static void SelectWeapon(PlayerWeaponType weaponType){
 		switch (weaponType) {
 			case PlayerWeaponType.KNIFE:
-				myslf.knifeSelector.SetActive(true);
-				myslf.gunSelector.SetActive(false);
 			break;
 			case PlayerWeaponType.PISTOL:
-				myslf.knifeSelector.SetActive(false);
-				myslf.gunSelector.SetActive(true);
 			break;
 		}
 
