@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
-	public GameObject endSection;
+	public GameObject endSection,hpbarfull,hpbarhurt;
 	int currentScore=0;
 	static GameManager myslf;
 	public bool gameOver=false;
@@ -21,7 +21,11 @@ public class GameManager : MonoBehaviour {
 		if (gameOver && Input.GetKeyDown(KeyCode.R)) {
 			Application.LoadLevel(Application.loadedLevel);
 		}
-
+		if (PlayerBehavior.instance != null)
+		{
+            hpbarhurt?.gameObject?.SetActive(PlayerBehavior.instance.damaged);
+			hpbarfull?.gameObject?.SetActive(!PlayerBehavior.instance.damaged);
+        }
 	}
 	public static void AddScore(int pointsAdded){
 		myslf.currentScore += pointsAdded;

@@ -12,7 +12,7 @@ namespace VikingParty
                 Debug.Log("Attack");
                 NPC_Friend.main.Attack();
             }
-            else if (s.Contains("help"))
+            else if (s.Contains("help") || s.Contains("heal"))
             {
                 NPC_Friend.main.Help();
                 Debug.Log("Help");
