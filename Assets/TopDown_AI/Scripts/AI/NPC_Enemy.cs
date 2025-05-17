@@ -6,6 +6,7 @@ public class NPC_Enemy : NPC_Base
 
     protected override void Start()
     {
+        base.Start();
         GameManager.AddToEnemyCount();
     }
     protected override void TargetCheck()

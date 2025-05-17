@@ -40,9 +40,10 @@ public class NPC_Base : MonoBehaviour
     }
     protected void SetWeapon(NPC_WeaponType newWeapon)
     {
+        weaponType = newWeapon;
         npcAnimator.SetTrigger("WeaponChange");
-        npcAnimator.SetInteger("WeaponType", (int)weaponType);
-        switch (weaponType)
+        npcAnimator.SetInteger("WeaponType", (int)newWeapon);
+        switch (newWeapon)
         {
             case NPC_WeaponType.KNIFE:
                 weaponRange = 1.0f;
