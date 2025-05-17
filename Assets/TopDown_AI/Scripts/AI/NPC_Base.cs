@@ -88,10 +88,11 @@ public class NPC_Base : MonoBehaviour
     }
     protected void Update()
     {
-        if (_updateState!=null)
+        if (_updateState != null)
             _updateState();
 
         npcAnimator.SetFloat(hashSpeed, navMeshAgent.velocity.magnitude);
+        npcAnimator.SetBool("Walking", navMeshAgent.velocity.magnitude > 0);
     }
 
     ///////////////////////////////////////////////////////// STATE: IDLE STATIC
@@ -219,38 +220,19 @@ public class NPC_Base : MonoBehaviour
 
     }
     ///////////////////////////////////////////////////////// STATE: HELP!
-    void StateInit_Help()
+    protected virtual void StateInit_Help()
     {
-        navMeshAgent.speed = 16.0f;
     }
-    void StateUpdate_Help()
+    protected virtual void StateUpdate_Help()
     {
-        if (PlayerBehavior.instance !=null)
-            navMeshAgent.SetDestination(PlayerBehavior.instance.transform.position);
-
-        if (HasReachedMyDestination(5) && !inspectWait)
-        {
-            inspectWait = true;
-            inspectTimer.StartTimer(.5f);
-            navMeshAgent.isStopped = true;
-        }
-        else if (inspectWait)
-        {
-            inspectTimer.UpdateTimer();
-            if (inspectTimer.IsFinished()) { 
-                inspectWait = false;
-                navMeshAgent.isStopped = false;
-            }
-        }
-
     }
-    void StateEnd_Help()
+    protected virtual void StateEnd_Help()
     {
     }
     ///////////////////////////////////////////////////////// STATE: INSPECT
-    Misc_Timer inspectTimer = new Misc_Timer();
-    Misc_Timer inspectTurnTimer = new Misc_Timer();
-    bool inspectWait;
+    protected Misc_Timer inspectTimer = new Misc_Timer();
+    protected Misc_Timer inspectTurnTimer = new Misc_Timer();
+    protected bool inspectWait;
     void StateInit_Inspect()
     {
         navMeshAgent.speed = 16.0f;

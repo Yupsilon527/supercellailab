@@ -55,8 +55,11 @@ public class PlayerBehavior : MonoBehaviour {
 		attackTimer.UpdateTimer ();
 		UpdateAim ();
 	}
+	public bool damaged = false;
+	public ParticleSystem hurtParticle;
+	public ParticleSystem healParticle;
 	public void DamagePlayer(){
-		animator.SetBool ("Dead", true);
+		/*animator.SetBool ("Dead", true);
 		animator.transform.parent = null;
 		this.enabled = false;
 		myRigidBody.isKinematic = true;
@@ -65,8 +68,20 @@ public class PlayerBehavior : MonoBehaviour {
 		GameCamera.ToggleShake (0.3f);
 		Vector3 pos = animator.transform.position;
 		pos.y = 0.2f;
-		animator.transform.position = pos;
-	}
+		animator.transform.position = pos;*/
+		damaged = true;
+		if (hurtParticle != null)
+			hurtParticle.Play();
+
+    }
+	public void Heal()
+    {
+        damaged = false;
+        if (hurtParticle != null)
+            hurtParticle.Stop();
+        if (healParticle != null)
+            healParticle.Play();
+    }
 	void UpdateAim(){
 
 		foreach (var hit in Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition))) {

@@ -17,9 +17,11 @@ namespace VikingParty
             if (s.Contains("attack"))
             {
                 Debug.Log("Attack");
+                NPC_Friend.main.Attack();
             }
             else if (s.Contains("help"))
             {
+                NPC_Friend.main.Help();
                 Debug.Log("Help");
             }
         }

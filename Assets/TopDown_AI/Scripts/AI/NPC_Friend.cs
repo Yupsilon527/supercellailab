@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class NPC_Friend : NPC_Base
 {
+    public static NPC_Friend main;
+
+    public ParticleSystem leroyParticle;
+    public ParticleSystem helpParticle;
+    private void Awake()
+    {
+        main = this;
+    }
     protected override void AttackAction()
     {
         switch (weaponType)
@@ -44,5 +52,52 @@ public class NPC_Friend : NPC_Base
     public override void Damage()
     {
         Debug.Log("Ouch");
+    }
+
+    public void Attack()
+    {
+        if (leroyParticle != null)
+            leroyParticle.Play();
+    }
+    public void Help()
+    {
+        idleState = NPC_EnemyState.FOLLOW_PLAYER;
+        SetState(idleState);
+    }
+    protected override void StateInit_Help()
+    {
+        navMeshAgent.speed = 16.0f;
+    }
+    protected override void StateUpdate_Help()
+    {
+        if (PlayerBehavior.instance != null)
+            navMeshAgent.SetDestination(PlayerBehavior.instance.transform.position);
+
+        if (HasReachedMyDestination(5) && !inspectWait)
+        {
+            inspectWait = true;
+            inspectTimer.StartTimer(.5f);
+            navMeshAgent.isStopped = true;
+
+            if (PlayerBehavior.instance.damaged) {
+                PlayerBehavior.instance.Heal();
+            npcAnimator.SetTrigger("Heal");
+            if (helpParticle != null)
+                helpParticle.Play();
+                }
+        }
+        else if (inspectWait)
+        {
+            inspectTimer.UpdateTimer();
+            if (inspectTimer.IsFinished())
+            {
+                inspectWait = false;
+                navMeshAgent.isStopped = false;
+            }
+        }
+
+    }
+    protected virtual void StateEnd_Help()
+    {
     }
 }
