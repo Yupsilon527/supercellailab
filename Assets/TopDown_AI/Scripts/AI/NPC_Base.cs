@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum NPC_EnemyState { IDLE_STATIC, IDLE_ROAMER, IDLE_PATROL, INSPECT, ATTACK, FIND_WEAPON, KNOCKED_OUT, HELP_PLAYER, DEAD, NONE }
+public enum NPC_EnemyState { IDLE_STATIC, IDLE_ROAMER, IDLE_PATROL, INSPECT, ATTACK, FIND_WEAPON, KNOCKED_OUT, FOLLOW_PLAYER, DEAD, NONE }
 public enum NPC_WeaponType { KNIFE, RIFLE, SHOTGUN }
 
 public class NPC_Base : MonoBehaviour
@@ -24,7 +24,7 @@ public class NPC_Base : MonoBehaviour
     public LayerMask hitTestLayer;
     protected float weaponRange;
     public Transform weaponPivot;
-    protected float weaponActionTime, weaponTime;
+    protected float weaponReload, weaponContact;
 
     public float inspectTimeout; //Once the npc reaches the destination, how much time unitl in goes back.
 
@@ -47,18 +47,18 @@ public class NPC_Base : MonoBehaviour
         {
             case NPC_WeaponType.KNIFE:
                 weaponRange = 1.0f;
-                weaponActionTime = 0.2f;
-                weaponTime = 0.4f;
+                weaponReload = 0.2f;
+                weaponContact = 0.4f;
                 break;
             case NPC_WeaponType.RIFLE:
                 weaponRange = 20.0f;
-                weaponActionTime = 0.025f;
-                weaponTime = 0.05f;
+                weaponReload = 0.25f;
+                weaponContact = 0.05f;
                 break;
             case NPC_WeaponType.SHOTGUN:
                 weaponRange = 20.0f;
-                weaponActionTime = 0.35f;
-                weaponTime = 0.75f;
+                weaponReload = 0.35f;
+                weaponContact = 0.75f;
                 break;
         }
     }
@@ -75,6 +75,7 @@ public class NPC_Base : MonoBehaviour
                 case NPC_EnemyState.IDLE_PATROL: _initState = StateInit_IdlePatrol; _updateState = StateUpdate_IdlePatrol; _endState = StateEnd_IdlePatrol; break;
                 case NPC_EnemyState.INSPECT: _initState = StateInit_Inspect; _updateState = StateUpdate_Inspect; _endState = StateEnd_Inspect; break;
                 case NPC_EnemyState.ATTACK: _initState = StateInit_Attack; _updateState = StateUpdate_Attack; _endState = StateEnd_Attack; break;
+                case NPC_EnemyState.FOLLOW_PLAYER: _initState = StateInit_Help; _updateState = StateUpdate_Help; _endState = StateEnd_Help; break;
             }
             _initState();
             currentState = newState;
@@ -99,7 +100,7 @@ public class NPC_Base : MonoBehaviour
     void StateInit_IdleStatic()
     {
         navMeshAgent.SetDestination(startingPos);
-        navMeshAgent.Resume();
+        navMeshAgent.isStopped = false;
     }
     void StateUpdate_IdleStatic()
     {
@@ -174,7 +175,7 @@ public class NPC_Base : MonoBehaviour
         {
             if (idleMoving)
             {
-                navMeshAgent.Stop();
+                navMeshAgent.isStopped = true;
                 float waitTime = Random.Range(2.5f, 6.5f);
                 float randomTurnTime = waitTime / 2.0f;
                 idleRotateTimer.StartTimer(randomTurnTime);
@@ -212,10 +213,39 @@ public class NPC_Base : MonoBehaviour
             Physics.Raycast(transform.position, reflectedVector, out hit, 50.0f, hitTestLayer);
         }
 
-        navMeshAgent.Resume();
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(hit.point);
 
 
+    }
+    ///////////////////////////////////////////////////////// STATE: HELP!
+    void StateInit_Help()
+    {
+        navMeshAgent.speed = 16.0f;
+    }
+    void StateUpdate_Help()
+    {
+        if (PlayerBehavior.instance !=null)
+            navMeshAgent.SetDestination(PlayerBehavior.instance.transform.position);
+
+        if (HasReachedMyDestination(5) && !inspectWait)
+        {
+            inspectWait = true;
+            inspectTimer.StartTimer(.5f);
+            navMeshAgent.isStopped = true;
+        }
+        else if (inspectWait)
+        {
+            inspectTimer.UpdateTimer();
+            if (inspectTimer.IsFinished()) { 
+                inspectWait = false;
+                navMeshAgent.isStopped = false;
+            }
+        }
+
+    }
+    void StateEnd_Help()
+    {
     }
     ///////////////////////////////////////////////////////// STATE: INSPECT
     Misc_Timer inspectTimer = new Misc_Timer();
@@ -224,7 +254,7 @@ public class NPC_Base : MonoBehaviour
     void StateInit_Inspect()
     {
         navMeshAgent.speed = 16.0f;
-        navMeshAgent.Resume();
+        navMeshAgent.isStopped = false;
         inspectTimer.StopTimer();
         inspectWait = false;
     }
@@ -252,7 +282,7 @@ public class NPC_Base : MonoBehaviour
                 SetState(idleState);
         }
     }
-  protected virtual  void TargetCheck()
+    protected virtual void TargetCheck()
     {
     }
     void StateEnd_Inspect()
@@ -264,12 +294,12 @@ public class NPC_Base : MonoBehaviour
     bool actionDone;
     void StateInit_Attack()
     {
-        navMeshAgent.Stop();
+        navMeshAgent.isStopped = true;
         navMeshAgent.velocity = Vector3.zero;
         npcAnimator.SetBool("Attack", true);
         CancelInvoke("AttackAction");
-        Invoke("AttackAction", weaponActionTime);
-        attackActionTimer.StartTimer(weaponTime);
+        Invoke("AttackAction", weaponReload);
+        attackActionTimer.StartTimer(weaponContact);
 
         actionDone = false;
     }
@@ -341,7 +371,7 @@ public class NPC_Base : MonoBehaviour
             SetState(NPC_EnemyState.INSPECT);
         }
     }
-    public void Damage()
+    public virtual void Damage()
     {
         navMeshAgent.velocity = Vector3.zero;
         //navMeshAgent.Stop ();

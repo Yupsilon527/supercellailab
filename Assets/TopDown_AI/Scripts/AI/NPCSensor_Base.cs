@@ -10,13 +10,13 @@ public struct NPCSensor_Condition{
 	public bool value;
 }*/
 public class NPCSensor_Base : MonoBehaviour {
-	public NPC_Enemy npcBase;
+	public NPC_Base npcBase;
 //	public List<NPCSensor_Condition> appliedConditons;
 	protected List<GameObject> sensedObjects=new List<GameObject>();
 
-	void Start () {
+	void Awake () {
 		if (npcBase == null)
-			npcBase = gameObject.GetComponent<NPC_Enemy> ();
+			npcBase = gameObject.GetComponent<NPC_Base> ();
 		StartSensor ();
 	}
 

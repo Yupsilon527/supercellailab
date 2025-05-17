@@ -2,6 +2,7 @@
 using System.Collections;
 public enum PlayerWeaponType{KNIFE,PISTOL,NULL}
 public class PlayerBehavior : MonoBehaviour {
+	public static PlayerBehavior instance;
 	Rigidbody myRigidBody;
 	public float moveSpeed=10.0f;
 	public Transform hitTestPivot,gunPivot;
@@ -13,8 +14,8 @@ public class PlayerBehavior : MonoBehaviour {
 	Misc_Timer attackTimer= new Misc_Timer();
 	// Use this for initialization
 	void Awake() {
-
-	}
+		instance = this;
+    }
 	void Start () {
 		SetWeapon (PlayerWeaponType.PISTOL);
 		myRigidBody = GetComponent<Rigidbody> ();

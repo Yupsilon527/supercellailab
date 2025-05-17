@@ -29,7 +29,14 @@ public class NPC_Enemy : NPC_Base
                 {
                     if (hit.collider != null && hit.collider.tag == "Player")
                     {
-                        hit.collider.GetComponent<PlayerBehavior>().DamagePlayer();
+                        if (hit.collider.TryGetComponent(out PlayerBehavior player))
+                        {
+                            player.DamagePlayer();
+                        }
+                        else if (hit.collider.TryGetComponent(out NPC_Base friend))
+                        {
+                            friend.Damage();
+                        }
                     }
                 }
                 break;

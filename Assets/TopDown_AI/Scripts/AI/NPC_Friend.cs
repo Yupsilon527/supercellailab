@@ -33,6 +33,16 @@ public class NPC_Friend : NPC_Base
     }
     protected override void TargetCheck()
     {
-        base.TargetCheck();
+        RaycastHit hit = new RaycastHit();
+        Physics.Raycast(transform.position, transform.forward, out hit, weaponRange, hitTestLayer);
+
+        if (hit.collider != null && hit.collider.tag == "Enemy ")
+        {
+            SetState(NPC_EnemyState.ATTACK);
+        }
+    }
+    public override void Damage()
+    {
+        Debug.Log("Ouch");
     }
 }
