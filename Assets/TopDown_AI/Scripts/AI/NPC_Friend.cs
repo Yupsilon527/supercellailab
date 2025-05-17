@@ -74,6 +74,7 @@ public class NPC_Friend : NPC_Base
 
             Debug.Log(name +" ENGAGE TARGET " + found[0].name);
             targetPos = found[0].transform.position;
+            idleState = NPC_EnemyState.IDLE_STATIC;
             SetState(NPC_EnemyState.INSPECT);
         }
         
