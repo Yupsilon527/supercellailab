@@ -1,23 +1,9 @@
-﻿using UnityEngine;
 using System.Collections;
-public class NPC_Enemy : NPC_Base
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NPC_Friend : NPC_Base
 {
-    // Use this for initialization
-
-    protected override void Start()
-    {
-        GameManager.AddToEnemyCount();
-    }
-    protected override void TargetCheck()
-    {
-        RaycastHit hit = new RaycastHit();
-        Physics.Raycast(transform.position, transform.forward, out hit, weaponRange, hitTestLayer);
-
-        if (hit.collider != null && hit.collider.tag == "Player")
-        {
-            SetState(NPC_EnemyState.ATTACK);
-        }
-    }
     protected override void AttackAction()
     {
         switch (weaponType)
@@ -26,9 +12,9 @@ public class NPC_Enemy : NPC_Base
                 RaycastHit[] hits = Physics.SphereCastAll(weaponPivot.position, 2.0f, weaponPivot.forward);
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider != null && hit.collider.tag == "Player")
+                    if (hit.collider != null && hit.collider.tag == "Enemy")
                     {
-                        hit.collider.GetComponent<PlayerBehavior>().DamagePlayer();
+                        hit.collider.GetComponent<NPC_Base>().Damage();
                     }
                 }
                 break;
@@ -44,5 +30,9 @@ public class NPC_Enemy : NPC_Base
                 }
                 break;
         }
+    }
+    protected override void TargetCheck()
+    {
+        base.TargetCheck();
     }
 }

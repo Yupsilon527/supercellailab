@@ -13,6 +13,7 @@ public class NPCSensor_Sight : NPCSensor_Base {
 	float lastSightTime=float.MinValue;
 	float SIGHT_DELAY_TIME=0.1f; //Time a object has to stay in sight to catch our attention
 	public Color idleColor, alertedColor, attackColor;
+	public string compareTag = "Player";
 	//TODO ADD the visual thingy
 	protected override void StartSensor(){
 		//InitFoV ();
@@ -32,7 +33,7 @@ public class NPCSensor_Sight : NPCSensor_Base {
 		for (int i=0; i<overlapedObjects.Length; i++) {
 			Vector3 direction = overlapedObjects [i].transform.position - transform.position;
 			float objAngle = Vector3.Angle (direction, transform.forward);
-			if (overlapedObjects [i].tag == "Player") { 
+			if (overlapedObjects [i].CompareTag(compareTag) ){ 
 				if ( objAngle < SIGHT_DIRECT_ANGLE && TargetInSight (overlapedObjects [i].transform, SIGHT_MAX_DISTANCE )) {
 					npcBase.SetTargetPos(overlapedObjects [i].transform.position);
 					material.SetColor ("_Color", attackColor);	
