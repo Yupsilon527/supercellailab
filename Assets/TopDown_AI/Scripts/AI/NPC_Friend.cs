@@ -79,12 +79,13 @@ public class NPC_Friend : NPC_Base
             inspectTimer.StartTimer(.5f);
             navMeshAgent.isStopped = true;
 
-            if (PlayerBehavior.instance.damaged) {
+            if (PlayerBehavior.instance.damaged)
+            {
                 PlayerBehavior.instance.Heal();
-            npcAnimator.SetTrigger("Heal");
-            if (helpParticle != null)
-                helpParticle.Play();
-                }
+                npcAnimator.SetTrigger("Heal");
+                if (helpParticle != null)
+                    helpParticle.Play();
+            }
         }
         else if (inspectWait)
         {
@@ -92,7 +93,8 @@ public class NPC_Friend : NPC_Base
             if (inspectTimer.IsFinished())
             {
                 inspectWait = false;
-                navMeshAgent.isStopped = false;
+                if (!HasReachedMyDestination(5))
+                    navMeshAgent.isStopped = false;
             }
         }
 

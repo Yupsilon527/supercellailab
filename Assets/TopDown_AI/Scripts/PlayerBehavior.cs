@@ -34,7 +34,8 @@ public class PlayerBehavior : MonoBehaviour {
 		//float speedX = inputHorizontal > 0.1 ? Mathf.Clamp ((inputHorizontal * moveSpeed), moveSpeed / 2.0f, moveSpeed) : 0.0f;
 		Vector3 newVelocity=new Vector3(inputVertical*moveSpeed, 0.0f, inputHorizontal*-moveSpeed);
 		myRigidBody.velocity = newVelocity;
-		switch (currentWeapon) {
+        animator.SetBool("Walking", myRigidBody.velocity.sqrMagnitude > 0);
+        switch (currentWeapon) {
 			case PlayerWeaponType.KNIFE:
 				if (Input.GetMouseButton (0) && attackTimer.IsFinished()) {
 					Attack();
@@ -87,7 +88,6 @@ public class PlayerBehavior : MonoBehaviour {
 		foreach (var hit in Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition))) {
 			if (hit.collider.CompareTag("Floor")) {
 				Vector3 mousePos = hit.point;
-                mousePos.y = transform.position.y;
                 mousePointer.transform.position = mousePos;
             }
 		}
