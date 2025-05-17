@@ -7,6 +7,7 @@ namespace VikingParty
         public void ProcessInput(string s)
         {
             Debug.Log("Handle cheat " + s);
+            s = s.ToLower();
             if (s.Contains("attack"))
             {
                 Debug.Log("Attack");
