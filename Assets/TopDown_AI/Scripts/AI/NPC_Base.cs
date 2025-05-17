@@ -24,7 +24,7 @@ public class NPC_Base : MonoBehaviour
     public LayerMask hitTestLayer;
     protected float weaponRange;
     public Transform weaponPivot;
-    protected float weaponReload, weaponContact;
+    protected float weaponContact, weaponReload;
 
     public float inspectTimeout; //Once the npc reaches the destination, how much time unitl in goes back.
 
@@ -47,18 +47,18 @@ public class NPC_Base : MonoBehaviour
         {
             case NPC_WeaponType.KNIFE:
                 weaponRange = 1.0f;
-                weaponReload = 0.2f;
-                weaponContact = 0.4f;
+                weaponContact = 0.2f;
+                weaponReload = 0.4f;
                 break;
             case NPC_WeaponType.RIFLE:
                 weaponRange = 20.0f;
-                weaponReload = 0.25f;
-                weaponContact = 0.05f;
+                weaponContact = .05f;
+                weaponReload = .5f;
                 break;
             case NPC_WeaponType.SHOTGUN:
                 weaponRange = 20.0f;
-                weaponReload = 0.35f;
-                weaponContact = 0.75f;
+                weaponContact = 0.35f;
+                weaponReload = 0.75f;
                 break;
         }
     }
@@ -294,12 +294,13 @@ public class NPC_Base : MonoBehaviour
     bool actionDone;
     void StateInit_Attack()
     {
+        if (!actionDone) return;
         navMeshAgent.isStopped = true;
         navMeshAgent.velocity = Vector3.zero;
         npcAnimator.SetBool("Attack", true);
-        CancelInvoke("AttackAction");
-        Invoke("AttackAction", weaponReload);
-        attackActionTimer.StartTimer(weaponContact);
+        //CancelInvoke("AttackAction");
+        Invoke("AttackAction", weaponContact);
+        attackActionTimer.StartTimer(weaponReload);
 
         actionDone = false;
     }
@@ -309,7 +310,6 @@ public class NPC_Base : MonoBehaviour
         if (!actionDone && attackActionTimer.IsFinished())
         {
             EndAttack();
-
             actionDone = true;
         }
     }

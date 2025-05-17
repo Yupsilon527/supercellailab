@@ -69,12 +69,15 @@ public class PlayerBehavior : MonoBehaviour {
 	}
 	void UpdateAim(){
 
-
-		Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		mousePos.y = transform.position.y;
-		mousePointer.transform.position = mousePos;
-		float deltaY = mousePos.z - transform.position.z;
-		float deltaX = mousePos.x - transform.position.x;
+		foreach (var hit in Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition))) {
+			if (hit.collider.CompareTag("Floor")) {
+				Vector3 mousePos = hit.point;
+                mousePos.y = transform.position.y;
+                mousePointer.transform.position = mousePos;
+            }
+		}
+		float deltaY = mousePointer.transform.position.z - transform.position.z;
+		float deltaX = mousePointer.transform.position.x - transform.position.x;
 		float angleInDegrees = Mathf.Atan2 (deltaY, deltaX) * 180 / Mathf.PI;
 		transform.eulerAngles = new Vector3 (0, -angleInDegrees, 0);
 	}

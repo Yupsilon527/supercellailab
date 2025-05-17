@@ -36,7 +36,7 @@ public class NPC_Friend : NPC_Base
         RaycastHit hit = new RaycastHit();
         Physics.Raycast(transform.position, transform.forward, out hit, weaponRange, hitTestLayer);
 
-        if (hit.collider != null && hit.collider.tag == "Enemy ")
+        if (hit.collider != null && hit.collider.tag == "Enemy")
         {
             SetState(NPC_EnemyState.ATTACK);
         }
