@@ -58,6 +58,25 @@ public class NPC_Friend : NPC_Base
     {
         if (leroyParticle != null)
             leroyParticle.Play();
+
+        List<NPC_Enemy> found = new();
+        foreach (var hit in Physics.SphereCastAll(transform.position, 100, Vector3.one))
+        {
+            if (hit.collider.CompareTag("Enemy") && hit.collider.TryGetComponent(out NPC_Enemy enemy))
+            {
+                found.Add(enemy);
+            }
+        }
+        Debug.Log("FOUND TARGETS: " + found.Count);
+        if (found.Count > 0)
+        {
+            found.Sort((NPC_Enemy a, NPC_Enemy b) => (a.transform.position - transform.position).sqrMagnitude.CompareTo((b.transform.position - transform.position).sqrMagnitude));
+
+            Debug.Log(name +" ENGAGE TARGET " + found[0].name);
+            targetPos = found[0].transform.position;
+            SetState(NPC_EnemyState.INSPECT);
+        }
+        
     }
     public void Help()
     {

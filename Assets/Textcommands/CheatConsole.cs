@@ -4,13 +4,6 @@ namespace VikingParty
 {
     public class CheatConsole : MonoBehaviour
     {
-        bool cheatmode = false;
-        private void Start()
-        {
-#if UNITY_EDITOR
-            cheatmode = true;
-#endif
-        }
         public void ProcessInput(string s)
         {
             Debug.Log("Handle cheat " + s);
